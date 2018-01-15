@@ -1,9 +1,9 @@
 #
 # Copyright (c) 2008, 2017, Oracle and/or its affiliates. All rights reserved.
 #
-# The MySQL Connector/C++ is licensed under the terms of the GPLv2
+# The MariaDB Connector/C++ is licensed under the terms of the GPLv2
 # <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>, like most
-# MySQL Connectors. There are special exceptions to the terms and
+# MariaDB Connectors. There are special exceptions to the terms and
 # conditions of the GPLv2 as it is applied to this software, see the
 # FLOSS License Exception
 # <http://www.mysql.com/about/legal/licensing/foss-exception.html>.
@@ -313,26 +313,26 @@ ELSE(MYSQL_SERVER_SUFFIX STREQUAL "-community")
 ENDIF(MYSQL_SERVER_SUFFIX STREQUAL "-community")
 
 IF(EXTRA_NAME_SUFFIX)
-  SET(CPACK_PACKAGE_NAME "mysql-connector-c++${EXTRA_NAME_SUFFIX}")
+  SET(CPACK_PACKAGE_NAME "mariadb-connector-c++${EXTRA_NAME_SUFFIX}")
 ELSE(EXTRA_NAME_SUFFIX)
-  SET(CPACK_PACKAGE_NAME "mysql-connector-c++")
+  SET(CPACK_PACKAGE_NAME "mariadb-connector-c++")
 ENDIF(EXTRA_NAME_SUFFIX)
 
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY
-    "Connector/C++, a library for connecting to MySQL servers.")
+    "Connector/C++, a library for connecting to MariaDB servers.")
 SET(CPACK_PACKAGE_VENDOR "Oracle and/or its affiliates")
 SET(CPACK_RPM_PACKAGE_DESCRIPTION
-    "The MySQL Connector/C++ is a MySQL database connector for C++. The
-    MySQL Driver for C++ can be used to connect to the MySQL Server from
-    C++ applications. The MySQL Driver for C++ mimics the JDBC 4.0 API. It
-    is recommended to use the connector with MySQL 5.1 or later. Note -
-    its full functionality is not available when connecting to MySQL 5.0.
-    The MySQL Driver for C++ cannot connect to MySQL 4.1 or earlier. MySQL
+    "The MariaDB Connector/C++ is a MariaDB database connector for C++. The
+    MariaDB Driver for C++ can be used to connect to the MariaDB Server from
+    C++ applications. The MariaDB Driver for C++ mimics the JDBC 4.0 API. It
+    is recommended to use the connector with MariaDB 5.1 or later. Note -
+    its full functionality is not available when connecting to MariaDB 5.0.
+    The MariaDB Driver for C++ cannot connect to MariaDB 4.1 or earlier. MariaDB
     is a trademark of ${CPACK_PACKAGE_VENDOR}
 
-    The MySQL software has Dual Licensing, which means you can use the MySQL
+    The MariaDB software has Dual Licensing, which means you can use the MariaDB
     software free of charge under the GNU General Public License
-    (http://www.gnu.org/licenses/). You can also purchase commercial MySQL
+    (http://www.gnu.org/licenses/). You can also purchase commercial MariaDB
     licenses from ${CPACK_PACKAGE_VENDOR} if you do not wish to be
     QLCPPCONN_VERSION
     in the manual for further info.")
@@ -407,7 +407,7 @@ ENDIF(CMAKE_COMPILER_IS_GNUCC)
 INCLUDE(CPack)
 
 IF(WIN32)
-  STRING(REGEX REPLACE "MYSQLCPPCONN" "MySQL/ConnectorCPP" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
+  STRING(REGEX REPLACE "MYSQLCPPCONN" "MariaDB/ConnectorCPP" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 ENDIF(WIN32)
 MESSAGE(STATUS "Installation path is: ${CMAKE_INSTALL_PREFIX}   (overwrite with -DCMAKE_INSTALL_PREFIX=/your/path)")
 
@@ -432,7 +432,7 @@ IF(DEFINED CMAKE_SYSTEM_NAME AND ${CMAKE_SYSTEM_NAME} STREQUAL "SunOS")
     MESSAGE("You seem to be using GCC on SunOS.")
     MESSAGE("This is not recommended. Compilation")
     MESSAGE("might fail due to compile flags")
-    MESSAGE("returned by the MySQL tool mysql_config.")
+    MESSAGE("returned by the MariaDB tool mysql_config.")
     MESSAGE("In case of an error, try commenting out:")
     MESSAGE("# ADD_DEFINITIONS(\"\${MYSQL_CXXFLAGS}\")")
     MESSAGE("in the file FindMySQL.cm")

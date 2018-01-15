@@ -1,9 +1,9 @@
 /*
 Copyright (c) 2008, 2014, Oracle and/or its affiliates. All rights reserved.
 
-The MySQL Connector/C++ is licensed under the terms of the GPLv2
+The MariaDB Connector/C++ is licensed under the terms of the GPLv2
 <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>, like most
-MySQL Connectors. There are special exceptions to the terms and
+MariaDB Connectors. There are special exceptions to the terms and
 conditions of the GPLv2 as it is applied to this software, see the
 FLOSS License Exception
 <http://www.mysql.com/about/legal/licensing/foss-exception.html>.
@@ -627,7 +627,7 @@ void connectionmetadata::getDriverVersions()
     ASSERT_LT(100, dbmeta->getDriverMinorVersion());
     ASSERT_LT(100, dbmeta->getDriverPatchVersion());
 
-    ASSERT_EQUALS("MySQL Connector/C++", dbmeta->getDriverName());
+    ASSERT_EQUALS("MariaDB Connector/C++", dbmeta->getDriverName());
 
     prodversion.str("");
     prodversion << dbmeta->getDriverMajorVersion() << "." << dbmeta->getDriverMinorVersion();

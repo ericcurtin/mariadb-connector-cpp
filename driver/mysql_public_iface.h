@@ -1,9 +1,9 @@
 /*
 Copyright (c) 2008, 2011, Oracle and/or its affiliates. All rights reserved.
 
-The MySQL Connector/C++ is licensed under the terms of the GPLv2
+The MariaDB Connector/C++ is licensed under the terms of the GPLv2
 <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>, like most
-MySQL Connectors. There are special exceptions to the terms and
+MariaDB Connectors. There are special exceptions to the terms and
 conditions of the GPLv2 as it is applied to this software, see the
 FLOSS License Exception
 <http://www.mysql.com/about/legal/licensing/foss-exception.html>.
@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 /*
-  Public interface of the MySQL Connector/C++.
+  Public interface of the MariaDB Connector/C++.
   You might not use it but directly include directly the different
   headers from cppconn/ and mysql_driver.h + mysql_util.h
   (and mysql_connection.h). This will reduce your build time!
