@@ -405,21 +405,7 @@ macro(_check_lib_search_error _lib_dir_var _lib_var _exta_err_string)
   if(NOT ${_lib_var})
     message(FATAL_ERROR ${_err_string})
   endif()
-
-  # find_library() try find a shared library first, then a static
-  # one. For Windows the library has a different name, but for
-  # Unix only the extension differs. So we check here that we
-  # got the library kind we expected.
-  if(NOT WIN32)
-    if(NOT MYSQLCLIENT_STATIC_LINKING)
-      get_filename_component(_ext ${_lib} EXT)
-      if(${_ext} STREQUAL ${_static_lib_ext})
-        message(FATAL_ERROR ${_err_string})
-      endif()
-    endif()
-  endif()
 endmacro()
-
 
 ##########################################################################
 #

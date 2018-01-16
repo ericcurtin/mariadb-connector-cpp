@@ -319,12 +319,14 @@ LibmysqlStaticProxy::options(MYSQL * mysql, enum mysql_option option, const void
 int
 LibmysqlStaticProxy::get_option(MYSQL * mysql, enum mysql_option option, const void *arg)
 {
-#if MYSQL_VERSION_ID >= 50703
-	if (::mysql_get_option(mysql, option, arg)) {
-		throw sql::InvalidArgumentException("Unsupported option provided to mysql_get_option()");
-	} else {
-		return 0;
-	}
+#if defined(MARIADB_BASE_VERSION)
+    throw ::sql::MethodNotImplementedException("::mysql_get_option() not implemented for MariaDB");
+#elif MYSQL_VERSION_ID >= 50703
+    if (::mysql_get_option(mysql, option, arg)) {
+        throw sql::InvalidArgumentException("Unsupported option provided to mysql_get_option()");
+    } else {
+        return 0;
+    }
 #else
 	throw ::sql::MethodNotImplementedException("::mysql_get_option()");
 #endif
