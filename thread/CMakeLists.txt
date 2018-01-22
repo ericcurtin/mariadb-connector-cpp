@@ -23,15 +23,15 @@
 #
 
 
-SET(MYSQLCPPCONN_THREAD_SOURCES
+SET(MARIADBCPPCONN_THREAD_SOURCES
 	my_pthread.c
 	my_wincond.c
 	my_winthread.c
 	my_thr_init.c
 	thr_mutex.c)
 
-ADD_LIBRARY(mysqlcppconn_thread SHARED ${MYSQLCPPCONN_THREAD_SOURCES})
-ADD_LIBRARY(mysqlcppconn_thread-static STATIC ${MYSQLCPPCONN_THREAD_SOURCES})
+ADD_LIBRARY(mariadbcppconn_thread SHARED ${MARIADBCPPCONN_THREAD_SOURCES})
+ADD_LIBRARY(mariadbcppconn_thread-static STATIC ${MARIADBCPPCONN_THREAD_SOURCES})
 
 IF(WIN32)
   ADD_DEFINITIONS("-D_CRT_SECURE_NO_WARNINGS")
@@ -45,30 +45,30 @@ ELSEIF(NOT WIN32)
   SET(MYTHREAD_TARGET_LINK_LIBRARIES_STATIC pthread)
 ENDIF(WIN32)
 
-TARGET_LINK_LIBRARIES(mysqlcppconn_thread ${MYTHREAD_TARGET_LINK_LIBRARIES_DYNAMIC})
+TARGET_LINK_LIBRARIES(mariadbcppconn_thread ${MYTHREAD_TARGET_LINK_LIBRARIES_DYNAMIC})
 
-TARGET_LINK_LIBRARIES(mysqlcppconn_thread-static ${MYTHREAD_TARGET_LINK_LIBRARIES_STATIC})
+TARGET_LINK_LIBRARIES(mariadbcppconn_thread-static ${MYTHREAD_TARGET_LINK_LIBRARIES_STATIC})
 
 
-SET_TARGET_PROPERTIES(mysqlcppconn_thread
+SET_TARGET_PROPERTIES(mariadbcppconn_thread
                       PROPERTIES SOVERSION "1"
-                      LINK_FLAGS "${MYSQLCPPCONN_LINK_FLAGS_ENV}"
-                      COMPILE_FLAGS "${MYSQLCPPCONN_COMPILE_FLAGS_ENV} $ENV{CFLAGS}")
+                      LINK_FLAGS "${MARIADBCPPCONN_LINK_FLAGS_ENV}"
+                      COMPILE_FLAGS "${MARIADBCPPCONN_COMPILE_FLAGS_ENV} $ENV{CFLAGS}")
 
 
-SET_TARGET_PROPERTIES(mysqlcppconn_thread-static PROPERTIES
-                      LINK_FLAGS "${MYSQLCPPCONN_LINK_FLAGS_ENV}"
-                      COMPILE_FLAGS "${MYSQLCPPCONN_COMPILE_FLAGS_ENV} $ENV{CFLAGS}")
+SET_TARGET_PROPERTIES(mariadbcppconn_thread-static PROPERTIES
+                      LINK_FLAGS "${MARIADBCPPCONN_LINK_FLAGS_ENV}"
+                      COMPILE_FLAGS "${MARIADBCPPCONN_COMPILE_FLAGS_ENV} $ENV{CFLAGS}")
 
 
 
 IF(WIN32)
-  INSTALL(TARGETS mysqlcppconn_thread mysqlcppconn_thread-static
+  INSTALL(TARGETS mariadbcppconn_thread mariadbcppconn_thread-static
           RUNTIME DESTINATION lib
           ARCHIVE DESTINATION lib
   )
 ELSE(WIN32)
-  INSTALL(TARGETS mysqlcppconn_thread mysqlcppconn_thread-static
+  INSTALL(TARGETS mariadbcppconn_thread mariadbcppconn_thread-static
           LIBRARY DESTINATION ${INSTALL_LIBDIR}
           ARCHIVE DESTINATION ${INSTALL_LIBDIR}
   )
