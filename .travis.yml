@@ -1,0 +1,13 @@
+services: docker
+
+language: c++
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+script:
+  - scripts/build.sh
+
