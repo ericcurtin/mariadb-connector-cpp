@@ -15,7 +15,7 @@ if [ "$1" != "build" ] && [ "$1" != "pull" ] && [ "$1" != "push" ] &&\
 fi
 
 for dir in */*; do
-  DOCIMG=$(printf "$dir\n" | sed 's#/##' |\
+  DOCIMG=$(printf "$dir\n" | sed 's#/#-#' |\
            sed 's#^#curtine/mariadb-connector-cpp:#')
 
   if [ "$1" == "build" ]; then
