@@ -37,7 +37,8 @@ d_compile() {
 
   d_run "$name" "$doc"\
     "$pre && export CC=$cc && export CXX=$cxx && rm -rf bin && mkdir bin &&\
-     cd bin && cmake .. && make VERBOSE=1 -j3 && make package"
+     cd bin && cmake -DCMAKE_BUILD_TYPE=Release .. && make VERBOSE=1 -j3\
+     && make package"
 }
 
 set -e
