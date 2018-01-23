@@ -49,13 +49,6 @@ cd "$DIR/.."
 for doc in $(dockerfiles/docker.sh list); do
   name=$(printf "$doc" | sed "s#curtine/##" | sed "s/:/-/")
 
-  if [[ "$doc" == *"centos"* ]]; then
-    d_compile "gcc" "g++"
-    continue
-  elif [[ "$doc" == *"debian"* ]]; then
-    d_compile "clang" "clang++"
-  fi
-
   d_compile "gcc" "g++"
 done
 
