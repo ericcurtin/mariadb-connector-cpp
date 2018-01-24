@@ -13,5 +13,5 @@ RUN export DEBIAN_FRONTEND=noninteractive &&\
       http://ftp.heanet.ie/mirrors/mariadb/repo/10.0/debian jessie main' &&\
     apt update -y &&\
     apt install -y cmake g++ libboost-dev mariadb-server vim &&\
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/lib/mysql/*
 
