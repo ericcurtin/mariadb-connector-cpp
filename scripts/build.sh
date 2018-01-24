@@ -38,7 +38,8 @@ d_compile() {
   d_run "$name" "$doc"\
     "$pre && export CC=$cc && export CXX=$cxx && rm -rf bin && mkdir bin &&\
      cd bin && cmake -DCMAKE_BUILD_TYPE=Release .. && make VERBOSE=1 -j3\
-     && make package"
+     && make package && mv mariadb-connector-c++--unknown.tar.gz\
+     ../mariadb-connector-c++-$name.tar.gz"
 }
 
 set -e

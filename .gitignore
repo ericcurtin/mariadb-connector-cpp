@@ -1,0 +1,9 @@
+# Where cmake generated files and binaries are kept
+bin/
+
+# Packages
+mariadb-connector-c++-mariadb-connector-cpp-debian-8.tar.gz
+mariadb-connector-c++-mariadb-connector-cpp-el-6.tar.gz
+mariadb-connector-c++-mariadb-connector-cpp-el-7.tar.gz
+mariadb-connector-c++-mariadb-connector-cpp-ubuntu-16_04.tar.gz
+
