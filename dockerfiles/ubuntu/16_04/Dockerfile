@@ -12,6 +12,7 @@ RUN export DEBIAN_FRONTEND=noninteractive &&\
     add-apt-repository 'deb [arch=amd64]\
       http://ftp.heanet.ie/mirrors/mariadb/repo/10.0/ubuntu xenial main' &&\
     apt update -y &&\
-    apt install -y cmake g++ libboost-dev mariadb-server vim &&\
+    apt install -y cmake g++ libboost-dev mariadb-server vim\
+      libmariadbclient-dev &&\
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/lib/mysql/*
 
