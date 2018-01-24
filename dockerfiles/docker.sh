@@ -19,7 +19,9 @@ for dir in */*; do
            sed 's#^#curtine/mariadb-connector-cpp:#')
 
   if [ "$1" == "build" ]; then
-    /bin/bash -c "cd $dir && docker build -t $DOCIMG ."
+    /bin/bash -c "cd $dir && docker build --build-arg=http_proxy=$http_proxy\
+      --build-arg=https_proxy=$https_proxy --build-arg=ftp_proxy=$ftp_proxy -t\
+      $DOCIMG ."
     continue
   fi
 

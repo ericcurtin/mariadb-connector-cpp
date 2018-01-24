@@ -1,5 +1,9 @@
 FROM centos:6
 
+ENV http_proxy=$http_proxy
+ENV https_proxy=$https_proxy
+ENV ftp_proxy=$ftp_proxy
+
 RUN printf $'[mariadb]\n\
 name=MariaDB\n\
 baseurl=https://yum.mariadb.org/10.0/centos6-amd64\n\

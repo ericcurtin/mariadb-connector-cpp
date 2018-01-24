@@ -1,4 +1,8 @@
-FROM centos:6
+FROM centos:7
+
+ENV http_proxy=$http_proxy
+ENV https_proxy=$https_proxy
+ENV ftp_proxy=$ftp_proxy
 
 RUN printf $'[mariadb]\n\
 name=MariaDB\n\
